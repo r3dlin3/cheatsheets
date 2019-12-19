@@ -1,0 +1,15 @@
+# Az CLI Cheatsheet
+
+## Login
+
+### To login using device code
+
+    az login --use-device-code
+
+### To list subscriptions
+
+    az account list
+
+### To select the subscription
+
+    az account set -s <sub name or id>
