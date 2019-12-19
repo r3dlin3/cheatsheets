@@ -1,0 +1,24 @@
+# Azure Kubernetes Service
+
+## List
+
+    az aks list -o table
+
+## Get Credentials
+With RBAC 
+    
+    az aks get-credentials -n <name> -g <rg>
+
+Without RBAC 
+    
+    az aks get-credentials -n <name> -g <rg> --admin
+
+## Pods
+
+    kubectl config get-contexts
+    kubectl config use-context <NAME>
+
+
+### All Pods
+
+    kubectl get pods -A

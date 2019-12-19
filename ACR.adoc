@@ -1,0 +1,16 @@
+# Docker &  
+
+# Azure Container Registry
+## Login
+az acr login -n myregistry
+
+## List ACRs
+az acr list
+
+## Build & push
+
+NOTE: the current folder MUST contain a Dockerfile
+
+    docker build . -t myimage:local
+    docker tag myimage:local myregistry.azurecr.io/myimage:v1
+    docker push myregistry.azurecr.io/myimage:v1
