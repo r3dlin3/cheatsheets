@@ -22,3 +22,13 @@ Without RBAC
 ### All Pods
 
     kubectl get pods -A
+
+## Cluster
+
+For basic overview:
+
+    kubectl cluster-info
+
+And for even more info
+
+    kubectl cluster-info dump
