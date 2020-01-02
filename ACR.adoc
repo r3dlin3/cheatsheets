@@ -1,11 +1,20 @@
-# Docker &  
+# Docker & Azure Container Registry
 
-# Azure Container Registry
+## Creation
+
+    az acr create -n myregistry -g myResourcegroup --sku Basic --admin-enabled true
+
 ## Login
-az acr login -n myregistry
+
+    az acr login -n myregistry
 
 ## List ACRs
-az acr list
+
+    az acr list
+
+or for an overview:
+
+    az acr list -o table
 
 ## Build & push
 
@@ -14,3 +23,11 @@ NOTE: the current folder MUST contain a Dockerfile
     docker build . -t myimage:local
     docker tag myimage:local myregistry.azurecr.io/myimage:v1
     docker push myregistry.azurecr.io/myimage:v1
+
+## Get credential
+
+    az acr credential show -n MyRegistry --password-name password2
+
+## Renew credential
+
+    az acr credential renew -n MyRegistry --password-name password2
