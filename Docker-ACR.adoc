@@ -31,3 +31,32 @@ NOTE: the current folder MUST contain a Dockerfile
 ## Renew credential
 
     az acr credential renew -n MyRegistry --password-name password2
+
+## Dockerfile
+
+### Install package
+
+#### Alpine
+
+----
+RUN apk update && \
+    apk add --no-cache graphviz
+----
+
+#### Ubuntu
+
+----
+RUN apt-get update \
+    && apt-get install -y \
+        graphviz \
+    && rm -rf /var/lib/apt/lists/*
+----
+
+#### CentOS
+
+----
+RUN yum update -y \
+    && yum install -y \
+        graphviz \
+    && yum clean -y all
+----
