@@ -66,3 +66,7 @@ RUN yum update -y \
 ### Docker 'run' command to start an interactive bash session 
 
     docker run -it <image> /bin/bash
+    
+In case an ENTRYPOINT is defined 
+
+    docker run -it --entrypoint /bin/bash <image>
