@@ -60,3 +60,9 @@ RUN yum update -y \
         graphviz \
     && yum clean -y all
 ----
+
+## Run
+
+### Docker 'run' command to start an interactive bash session 
+
+    docker run -it <image> /bin/bash
