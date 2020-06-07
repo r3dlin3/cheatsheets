@@ -1,0 +1,202 @@
+= Asciidoc
+:icons: font
+:toc:
+
+== References
+
+* https://powerman.name/doc/asciidoc[Powerman's AsciiDoc cheatsheet]
+* https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+
+== Lists
+
+=== Unordered
+
+----
+* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1
+----
+
+=== Numbered
+----
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+----
+
+=== Description
+
+----
+first term:: definition of first term
+second term:: definition of second term
+----
+
+=== Q&A
+
+----
+[qanda]
+What is Asciidoctor?::
+  An implementation of the AsciiDoc processor in Ruby.
+What is the answer to the Ultimate Question?:: 42
+----
+
+
+== Admonitions
+
+=== Icons
+
+In the header:
+
+----
+:icons: font
+----
+
+=== Inline 
+----
+NOTE: An admonition paragraph draws the reader's attention to
+auxiliary information.
+Its purpose is determined by the label
+at the beginning of the paragraph.
+
+Here are the other built-in admonition types:
+
+TIP: Pro tip...
+
+IMPORTANT: Don't forget...
+
+WARNING: Watch out for...
+
+CAUTION: Ensure that...
+----
+
+=== Block
+
+----
+[NOTE]
+====
+An admonition block may contain complex content.
+
+.A list
+- one
+- two
+- three
+
+Another paragraph.
+====
+----
+
+== Link
+
+=== External
+
+----
+https://asciidoctor.org - automatic!
+
+https://asciidoctor.org[Asciidoctor]
+
+link:https://example.org/?q=%5Ba%20b%5D[URL with special characters]
+----
+
+
+=== Internal
+
+----
+See <<paragraphs>> to learn how to write paragraphs.
+
+Learn how to organize the document into <<section-titles,sections>>.
+----
+
+== Images
+
+Whether we use the macro `image:` or `image::` will be rendered as an inline image or a block image
+----
+image:sunset.jpg[]
+
+# With alt text
+image::sunset.jpg[Sunset]
+
+# With a link
+image:https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true[title="Visualize", link="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fazmgmt-demo%2Fazuredeploy.json]
+----
+
+
+== Table of contents
+
+=== Using macro
+
+This allows to place the table of contents wherever we want:
+
+[source,asciidoc]
+----
+# In the header
+:toc: macro
+:toclevels: 3
+
+# Wherever we want
+toc::[]
+----
+
+== Table
+
+[source,asciidoc]
+----
+[cols="2", options="header"]
+|===
+|Application
+|Language
+
+|AsciiDoc
+|Python
+
+|Asciidoctor
+|Ruby
+|===
+----
+
+== Code
+
+=== Inline & blocks
+
+[source,asciidoc]
+------
+inline `code`
+
+.Optional Title
+----
+*Listing* Block
+
+Use: code or file listings
+----
+
+.Optional Title
+[source,perl]
+----
+# *Source* block
+# Use: highlight code listings
+# (require `source-highlight` or `pygmentize`)
+use DBI;
+my $dbh = DBI->connect('...',$u,$p)
+    or die "connect: $dbh->errstr";
+----
+
+------
+
+=== Callouts
+
+------
+[source,ruby]
+----
+require 'asciidoctor'  # \<1>
+
+Asciidoctor.convert_file 'mysample.adoc'  # \<2>
+----
+<1> Imports the library
+<2> Reads, parses, and converts the file
+------
+
+WARNING: The references must be passed just below the code block.
