@@ -16,13 +16,21 @@ or for an overview:
 
     az acr list -o table
 
-## Build & push
+## Build locally & push
 
-NOTE: the current folder MUST contain a Dockerfile
+IMPORTANT: The current folder MUST contain a Dockerfile
 
     docker build . -t myimage:local
     docker tag myimage:local myregistry.azurecr.io/myimage:v1
     docker push myregistry.azurecr.io/myimage:v1
+
+## Build in ACR
+
+IMPORTANT: You must be logged in
+
+IMPORTANT: The current folder MUST contain a Dockerfile
+
+    az acr build --registry myregistry --image myimage:v1 .
 
 ## Get credential
 
@@ -39,8 +47,10 @@ NOTE: the current folder MUST contain a Dockerfile
 #### Alpine
 
 ----
-RUN apk update && \
-    apk add --no-cache graphviz
+RUN apk add --update-cache graphviz \
+                           gcc \
+                           musl-dev \
+    && rm -rf /var/cache/apk/*    
 ----
 
 #### Ubuntu
@@ -65,8 +75,14 @@ RUN yum update -y \
 ### Python
 
 ----
+FROM python:3.8-alpine
+
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY myscript.py .
+
+CMD [ "python", "./myscript.py" ]
 ----
 
 ### PHP
