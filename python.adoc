@@ -1,0 +1,11 @@
+# Python
+
+
+## Project start
+
+----
+python -m venv myenv
+.\myenv\Scripts\activate
+echo autopep8 > requirements.txt
+pip install -r requirements.txt
+----
