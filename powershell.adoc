@@ -1,0 +1,16 @@
+= PowerShell
+:icons: font
+:toc:
+
+== Computed column in Select-Object
+
+[source,PowerShell
+----
+$Object | Select-Object "Name","Date",@{
+	Name = 'NewDate'
+	Expression = { Get-Date $_.Date -Format "MM/dd/yyyy" }
+}
+
+$Object | Select-Object "Name","Date",@{N = 'NewDate'; E = { Get-Date $_.Date -Format "MM/dd/yyyy" }}
+
+----
