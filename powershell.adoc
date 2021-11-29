@@ -20,3 +20,16 @@ $Object | Select-Object "Name","Date",@{N = 'NewDate'; E = { Get-Date $_.Date -F
 ----
 gci -Filter *.md | Rename-Item -NewName { [io.path]::ChangeExtension($_.name, "yaml") }
 ----
+
+
+== Grep in zip files
+
+[source,PowerShell]
+----
+[Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem')
+
+foreach($sourceFile in (Get-ChildItem -filter '*.jar' -recurse))
+{
+    [IO.Compression.ZipFile]::OpenRead($sourceFile.FullName).Entries.FullName | %{ "$sourcefile`:$_" } | select-String "XXX"
+}
+----
