@@ -33,3 +33,12 @@ foreach($sourceFile in (Get-ChildItem -filter '*.jar' -recurse))
     [IO.Compression.ZipFile]::OpenRead($sourceFile.FullName).Entries.FullName | %{ "$sourcefile`:$_" } | select-String "XXX"
 }
 ----
+
+== Read file content in a variable
+
+[source,PowerShell]
+----
+$text = [IO.File]::ReadAllText($filePath)
+----
+
+
