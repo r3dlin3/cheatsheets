@@ -41,4 +41,29 @@ foreach($sourceFile in (Get-ChildItem -filter '*.jar' -recurse))
 $text = [IO.File]::ReadAllText($filePath)
 ----
 
+== Environment variables
+
+Set an environment variable for the current process
+[source,PowerShell]
+----
+[Environment]::SetEnvironmentVariable("TF_LOG",'DEBUG' )
+----
+
+Set an environment variable for the user
+[source,PowerShell]
+----
+[Environment]::SetEnvironmentVariable("TF_LOG",'DEBUG','User')
+----
+
+Display all Environment variables
+[source,PowerShell]
+----
+gci env:* | sort-object name
+----
+
+
+
+
+
+
 
