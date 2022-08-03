@@ -61,6 +61,24 @@ Display all Environment variables
 gci env:* | sort-object name
 ----
 
+== Ask confirmation
+
+[source,PowerShell]
+----
+function Confirm-Overwrite {
+    param (
+        $filePath
+    )
+    $caption = "File already exists"
+    $message = "Do you want to overwrite $filePath?"
+    $yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", "help"
+    $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", "help"
+    $choices = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+    $answer = $host.ui.PromptForChoice($caption, $message, $choices, 0)
+
+    return $answer -eq 0
+}
+----
 
 
 
