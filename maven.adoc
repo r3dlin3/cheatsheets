@@ -1,0 +1,5 @@
+# Maven
+
+## Install parent POM without building Child modules
+
+  mvn install -N
