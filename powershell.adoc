@@ -96,6 +96,30 @@ $stopwatch.Stop()
 Write-Host -ForegroundColor Cyan "Time spend: $($stopwatch.Elapsed)"
 ----
 
+== Progression
+
+[source,PowerShell]
+----
+Write-Progress -Activity "Doing something" -Status "Details " -PercentComplete ($i / $count * 100)
+Write-Progress -Activity "Doing something" -Completed
+----
+
+== File Management
+
+=== Number of lines
+
+[source,PowerShell]
+----
+$nbLine = (Get-Content $fileName | Measure-Object -Line).Lines
+----
+
+=== First line
+
+[source,PowerShell]
+----
+$firstLine = Get-Content -Path $fileName -TotalCount 1
+----
+
 
 
 
