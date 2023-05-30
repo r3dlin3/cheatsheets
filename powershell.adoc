@@ -80,7 +80,21 @@ function Confirm-Overwrite {
 }
 ----
 
+== Measure execution time
 
+[source,PowerShell]
+----
+# Stopwatch that will start right away
+$stopwatch = [system.diagnostics.stopwatch]::StartNew()
+
+# To start later or start and stop
+$stopwatch = [system.diagnostics.stopwatch]::new()
+$stopwatch.Start()
+$stopwatch.Stop()
+
+# User-friendly display
+Write-Host -ForegroundColor Cyan "Time spend: $($stopwatch.Elapsed)"
+----
 
 
 
