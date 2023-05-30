@@ -1,0 +1,10 @@
+= Git
+:icons: font
+:toc:
+
+== Change remote URL
+
+----
+git remote set-url <remote_name> <remote_url>
+git remote set-url origin https://github.com/r3dlin3/cheatsheets.git
+----
