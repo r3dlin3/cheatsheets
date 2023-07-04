@@ -1,0 +1,62 @@
+# IntelliJ IDEA Shortcuts
+:experimental: true
+
+## Navigation
+
+[%noheader]
+|===
+|kbd:[Ctrl+E] | Recent files
+|kbd:[Ctrl+Shift+E] | Recently edited files
+|kbd:[Ctrl+F12] | Structure popup
+|kbd:[Alt+Home] | Jump to the navigation bar
+|kbd:[Ctrl+N] | Go to a class
+|kbd:[Ctrl+Shift+N] | Go to a file or a folder
+|kbd:[Ctrl+Shift+Alt+N] | Go to a symbol
+|kbd:[Alt+F1] | Select in
+|kbd:[Ctrl+Alt+F12] | Switch to the editor
+|kbd:[Alt+1] | The _Project_ tool window
+|kbd:[Alt+9] | The _Changes_ tool window
+|kbd:[Alt+9] | The _Terminal_ tool window
+|kbd:[Ctrl+Shift+T] | Go to a related unit test
+|kbd:[Alt+Ctrl+F7] | Show usages
+|===
+
+## Code Completion
+
+[%noheader]
+|===
+|kbd:[Ctrl+P] | Parameter info
+|kbd:[Ctrl+Shift+T] | Quick definition
+|kbd:[Ctrl+Alt+L] | Format file
+|kbd:[Ctrl+D] | Duplicate line
+|===
+
+## Refactoring
+
+[%noheader]
+|===
+|kbd:[Ctrl+P] | Parameter info
+|kbd:[Ctrl+Shift+T] | Quick definition
+|===
+
+## Bookmarks
+
+[%noheader]
+|===
+|kbd:[F11] | Add/Remove bookmark
+|kbd:[Shift+F11] | Select bookmark
+|===
+
+
+
+
+
+
+
+
+
+
+
+## Resources
+
+https://medium.com/@andrey_cheptsov/top-20-navigation-features-in-intellij-idea-ed8c17075880

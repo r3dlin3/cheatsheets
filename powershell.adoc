@@ -14,12 +14,7 @@ $Object | Select-Object "Name","Date",@{
 $Object | Select-Object "Name","Date",@{N = 'NewDate'; E = { Get-Date $_.Date -Format "MM/dd/yyyy" }}
 ----
 
-== Bulk file rename
 
-[source,PowerShell]
-----
-gci -Filter *.md | Rename-Item -NewName { [io.path]::ChangeExtension($_.name, "yaml") }
-----
 
 
 == Grep in zip files
@@ -34,12 +29,6 @@ foreach($sourceFile in (Get-ChildItem -filter '*.jar' -recurse))
 }
 ----
 
-== Read file content in a variable
-
-[source,PowerShell]
-----
-$text = [IO.File]::ReadAllText($filePath)
-----
 
 == Environment variables
 
@@ -120,6 +109,18 @@ $nbLine = (Get-Content $fileName | Measure-Object -Line).Lines
 $firstLine = Get-Content -Path $fileName -TotalCount 1
 ----
 
+=== Bulk file rename
 
+[source,PowerShell]
+----
+gci -Filter *.md | Rename-Item -NewName { [io.path]::ChangeExtension($_.name, "yaml") }
+----
+
+=== Read file content in a variable
+
+[source,PowerShell]
+----
+$text = [IO.File]::ReadAllText($filePath)
+----
 
 
