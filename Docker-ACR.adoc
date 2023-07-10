@@ -136,3 +136,34 @@ In case an ENTRYPOINT is defined
 
     docker run -it --entrypoint /bin/bash <image>
 
+## Pruning (remove unused objects)
+
+### Images
+
+`-a` will images that are not used by a container
+
+----
+docker image prune -a
+----
+
+### Containers
+
+`docker ps -a` list all containers, even stopped. By default, only running containers are shown.
+
+----
+docker container prune
+----
+
+## Logs 
+
+### View logs
+
+----
+docker logs <container>
+----
+
+### Purge logs
+
+----
+echo "" > $(docker inspect --format='{{.LogPath}}' gitlab)
+----

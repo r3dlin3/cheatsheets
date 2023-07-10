@@ -26,7 +26,7 @@
 [%noheader]
 |===
 |kbd:[Ctrl+P] | Parameter info
-|kbd:[Ctrl+Shift+T] | Quick definition
+|kbd:[Ctrl+Shift+I] | Quick definition
 |kbd:[Ctrl+Alt+L] | Format file
 |kbd:[Ctrl+D] | Duplicate line
 |===
